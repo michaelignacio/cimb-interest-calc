@@ -203,7 +203,7 @@ class App extends Component {
           <Legend />
         </div>
         <Disclaimer>
-          <p>This project is not affiliated with CIMB. <a href="https://github.com" target="_blank" rel="noopener noreferrer">fork me</a></p>
+          <p>This project is not affiliated with CIMB. <a href="https://github.com/michaelignacio/cimb-interest-calc" target="_blank" rel="noopener noreferrer">fork me</a></p>
         </Disclaimer>
       </Container>
     );
