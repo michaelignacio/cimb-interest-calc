@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "now": "npx now --prod"
+    "launch": "git push -u origin master && npx now --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
