@@ -51,7 +51,6 @@ const Label = styled.label`
 const Disclaimer = styled.small`
   font-style: italic;
   margin-top: 1rem;
-
   position: fixed;
   bottom: 0;
   background-color: #fff;
@@ -64,7 +63,6 @@ const Disclaimer = styled.small`
 
   @media (min-width: 768px) {
     margin-top: 0;
-
     position: unset;
     bottom: unset;
     background-color: none;
@@ -85,7 +83,6 @@ const Legend = () => {
 }
 
 const LegendContent = styled.div`
-  // display: none;
   margin-top: auto;
   margin-bottom: 3.5rem;
 
