@@ -67,10 +67,13 @@ const Disclaimer = styled.small`
 `
 
 const Legend = styled.div`
-  margin: 1.75rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
 
-  .mb {
-    margin-bottom: 1.75rem;
+  @media (min-width: 768px) {
+    flex-direction: column;
+    margin: 1.75rem;
   }
 
   p {
@@ -296,22 +299,26 @@ class App extends Component {
           />
         </Row>
         <Legend>
-          <code>
-            <p>
-              <small>gross interest = adb * interest * (days / 360)</small>
+          <div>
+            <code>
+              <p>
+                <small>gross interest = adb * interest * (days / 360)</small>
+              </p>
+            </code>
+            <p className="mb">
+              <small>
+                <code>gross interest = </code><strong>Php<Result data={this.state} /></strong>
+              </small>
             </p>
-          </code>
-          <p className="mb">
-            <small>
-              <code>gross interest = </code><strong>Php<Result data={this.state} /></strong>
-            </small>
-          </p>
-          <code>
-            <p><small>net interest = gross interest - withholding tax</small></p>
-          </code>
-          <p>
-            <code>net interest = </code><strong>Php<Result data={this.state} type="net" /></strong>
-          </p>
+            </div>
+            <div>
+            <code>
+              <p><small>net interest = gross interest - withholding tax</small></p>
+            </code>
+            <p>
+              <code>net interest = </code><strong>Php<Result data={this.state} type="net" /></strong>
+            </p>
+          </div>
         </Legend>
         <Comparison>
           <p>
