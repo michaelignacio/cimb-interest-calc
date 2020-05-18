@@ -13,11 +13,19 @@ const Container = styled.div`
     font-size: 1.25rem;
   }
 
+  h2 {
+    font-size: 1rem;
+  }
+
   @media (min-width: 768px) {
     height: 95vh;
 
     h1 {
       font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
     }
   }
 `
@@ -325,11 +333,9 @@ class App extends Component {
           </div>
         </Legend>
         <Comparison>
-          <p>
-            <strong>
-              Comparison with other banks' regular savings accounts
-            </strong>
-          </p>
+          <h2>
+            Comparison with other banks' regular savings accounts
+           </h2>
           <table>
             <thead>
               <tr>
