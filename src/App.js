@@ -69,7 +69,11 @@ const Disclaimer = styled.small`
 const Legend = styled.div`
   margin-top: 1rem;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+
+  @media (max-height: 480px) {
+    flex-direction: column-reverse;
+  }
 
   @media (min-width: 768px) {
     flex-direction: column;
