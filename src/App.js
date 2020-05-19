@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Table from './components/Table';
 import Result from './components/Result';
+import Sidebar from './components/Sidebar';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
   text-align: center;
+  padding: 1rem;
+  flex-direction: column;
 
   h1 {
     font-size: 1.25rem;
@@ -20,7 +19,10 @@ const Container = styled.div`
   }
 
   @media (min-width: 768px) {
+    flex-direction: row;
     height: 95vh;
+    max-width: 1280px;
+    margin: 0 auto;
 
     h1 {
       font-size: 2rem;
@@ -30,6 +32,14 @@ const Container = styled.div`
       font-size: 1.5rem;
     }
   }
+`
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  justify-content: center;
+  align-items: center;
 `
 
 const Input = styled.input`
@@ -72,6 +82,7 @@ const Disclaimer = styled.small`
 
   @media (min-width: 768px) {
     margin-top: 0;
+    max-width: 1280px;
   }
 `
 
@@ -118,6 +129,7 @@ class App extends Component {
   render() {
     return (
       <Container>
+        <Content>
         <h1>CIMB PH Interest Calculator</h1>
         <Row>
           <Label htmlFor="adb">Average daily PHP balance</Label>
@@ -199,6 +211,8 @@ class App extends Component {
           </div>
         </Legend>
         <Table props={this.state} />
+        </Content>
+        <Sidebar />
         <Disclaimer>
           <p>
             This project is not affiliated with CIMB. {' '}
