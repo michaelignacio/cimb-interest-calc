@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Table from './components/Table';
+import Result from './components/Result';
 
 const Container = styled.div`
   display: flex;
@@ -91,131 +93,6 @@ const Legend = styled.div`
     margin: 5px;
   }
 `
-
-const Comparison = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 4rem;
-
-  @media (min-width: 768px) {
-    margin-bottom: 0;
-  }
-
-  body {
-    font-family: "Open Sans", sans-serif;
-    line-height: 1.25;
-  }
-
-  table {
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    // width: 100%;
-    table-layout: fixed;
-  }
-
-  table caption {
-    font-size: 1.5em;
-    margin: .5em 0 .75em;
-  }
-
-  @media (min-width: 768px) {
-    table th,
-    table tr:nth-child(even) {
-      background-color: #f8f8f8;
-    }
-
-    table tr {
-      border: 1px solid #ddd;
-      padding: .35em;
-    }
-  }
-
-  table th,
-  table td {
-    padding: .625em;
-    text-align: center;
-  }
-
-  table th {
-    font-size: .85em;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-  }
-
-  @media screen and (max-width: 600px) {
-    table {
-      border: 0;
-    }
-
-    table caption {
-      font-size: 1.3em;
-    }
-
-    table thead {
-      border: none;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      margin: -1px;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      width: 1px;
-    }
-
-    table tr {
-      border-bottom: 3px solid #ddd;
-      display: block;
-      margin-bottom: .625em;
-    }
-
-    table td {
-      border-bottom: 1px solid #ddd;
-      display: block;
-      font-size: .8em;
-      // text-align: right;
-    }
-
-    table td::before {
-      /*
-      * aria-label has no advantage, it won't be read inside a table
-      content: attr(aria-label);
-      */
-      content: attr(data-label);
-      float: left;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    table td:last-child {
-      border-bottom: 0;
-    }
-  }
-`
-
-const Result = (props) => {
-  const data = props.data;
-  const tax = data.tax / 100;
-  let interest = 0, result = 0, net = 0, gross = 0;
-
-  if (!props.bank) {
-    interest = data.interest / 100;
-  } else {
-    interest = 0.25 / 100;
-  }
-
-  gross = (data.adb * interest * (data.days / 360));
-  net = gross * (1 - tax);
-
-  if (props.type === 'net') {
-    result = net;
-  } else if (props.type !== 'net' || props.bank !== '') {
-    result = gross;
-  }
-
-  return Math.round(result * 100) / 100;
-}
 
 class App extends Component {
   constructor(props) {
@@ -321,69 +198,7 @@ class App extends Component {
             </p>
           </div>
         </Legend>
-        <Comparison>
-          <h2>
-            Comparison with other banks' regular savings accounts
-           </h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Bank</th>
-                <th>Interest rate per annum</th>
-                <th>Credited when</th>
-                <th>Gross interest earned</th>
-              </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>
-                <a target="_blank"
-                  href="https://www.bpiexpressonline.com/p/1/326/deposit-rates-savings-and-checking"
-                  rel="noopener noreferrer">
-                  BPI Express Teller
-                </a>
-              </td>
-              <td>
-                0.25%
-              </td>
-              <td>Quarterly</td>
-              <td>
-                Php<Result data={this.state} bank="bpi" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a target="_blank"
-                  href="https://www.bdo.com.ph/personal/accounts/peso-savings-account/passbook-savings"
-                  rel="noopener noreferrer">
-                  BDO Passbook/ATM Savings
-                </a>
-              </td>
-              <td>
-                  0.25%
-              </td>
-              <td>Quarterly</td>
-              <td>
-                Php<Result data={this.state} bank="bdo" />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a href="https://www.cimbbank.com.ph/en/digital-banking/savings-accounts-and-loans/upsave.html">
-                  CIMB Upsave
-                </a>
-              </td>
-              <td>
-                  4%
-              </td>
-              <td>Every 1 <sup>st</sup> of the month</td>
-              <td>
-                <strong>Php<Result data={this.state} /></strong>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </Comparison>
+        <Table props={this.state} />
         <Disclaimer>
           <p>
             This project is not affiliated with CIMB. {' '}
