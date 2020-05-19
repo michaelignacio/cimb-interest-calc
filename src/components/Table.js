@@ -105,6 +105,7 @@ const Table = ({props}) => (
           <th>Interest rate per annum</th>
           <th>Credited when</th>
           <th>Gross interest earned</th>
+          <th>Yearly gross interest</th>
         </tr>
       </thead>
       <tbody>
@@ -123,6 +124,9 @@ const Table = ({props}) => (
         <td>
           Php<Result data={props} bank="bpi" />
         </td>
+        <td>
+          Php<Result data={props} bank="bpi" multiplier="3" />
+        </td>
       </tr>
       <tr>
         <td>
@@ -139,6 +143,9 @@ const Table = ({props}) => (
         <td>
           Php<Result data={props} bank="bdo" />
         </td>
+        <td>
+          Php<Result data={props} bank="bdo" multiplier="3" />
+        </td>
       </tr>
       <tr>
         <td>
@@ -152,6 +159,9 @@ const Table = ({props}) => (
         <td>Every 1 <sup>st</sup> of the month</td>
         <td>
           <strong>Php<Result data={props} /></strong>
+        </td>
+        <td>
+          <strong>Php<Result data={props} multiplier="12" /></strong>
         </td>
       </tr>
       </tbody>
