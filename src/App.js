@@ -57,7 +57,6 @@ const Label = styled.label`
 `
 
 const Disclaimer = styled.small`
-  font-style: italic;
   margin-top: 2rem;
   position: fixed;
   bottom: 0;
@@ -97,16 +96,6 @@ const Comparison = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
-
-  /*table {
-    border-collapse: collapse;
-  }
-
-  th,
-  td {
-    border: 1px solid #bbb;
-    padding: 10px;
-  }*/
 
   @media (min-width: 768px) {
     margin-bottom: 0;
@@ -381,7 +370,7 @@ class App extends Component {
             <tr>
               <td>
                 <a href="https://www.cimbbank.com.ph/en/digital-banking/savings-accounts-and-loans/upsave.html">
-                  CIMB
+                  CIMB Upsave
                 </a>
               </td>
               <td>
