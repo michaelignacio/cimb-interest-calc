@@ -1,4 +1,6 @@
-## URL
+# README
+Ever wondered how CIMB Bank PH compares with savings accounts on other traditional banks?
+
 Access the CIMB PH Interest Calculator [here](https://cimb-calc.now.sh/).
 
 ## Quick start
