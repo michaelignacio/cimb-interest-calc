@@ -87,7 +87,7 @@ const Sidebar = () => (
       <MobileStoreButton
         store="android"
         url={androidUrl}
-        linkProps={{ title: 'Download PayMaya on the App Store' }}
+        linkProps={{ title: 'Download PayMaya on Google Play' }}
         width="175px"
         height="70px"
       />
