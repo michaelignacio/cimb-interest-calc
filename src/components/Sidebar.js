@@ -12,8 +12,11 @@ const StyledSidebar = styled.div`
   flex-direction: column;
   flex-grow: 1;
   justify-content: center;
+  margin-bottom: 2rem;
+
   @media (min-width: 768px) {
     margin-left: 60px;
+    margin-bottom: 0;
   }
 
   .mt {
