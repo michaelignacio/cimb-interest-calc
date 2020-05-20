@@ -5,7 +5,7 @@ import Result from './Result';
 const Comparison = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 4rem;
+  // margin-bottom: 2rem;
 
   @media (min-width: 768px) {
     margin-bottom: 0;

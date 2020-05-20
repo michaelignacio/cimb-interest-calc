@@ -7,7 +7,6 @@ import Sidebar from './components/Sidebar';
 const Container = styled.div`
   display: flex;
   text-align: center;
-  padding: 1rem;
   flex-direction: column;
 
   h1 {
@@ -18,7 +17,7 @@ const Container = styled.div`
     font-size: 1rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1200px) {
     flex-direction: row;
     height: 95vh;
     max-width: 1280px;
@@ -37,8 +36,9 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+  flex-grow: 1;
   justify-content: center;
+  padding: 1rem;
   align-items: center;
 `
 

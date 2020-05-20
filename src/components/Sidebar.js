@@ -9,14 +9,18 @@ const androidUrl = 'https://play.google.com/store/apps/details?id=com.paymaya&hl
 const StyledSidebar = styled.div`
   align-items: center;
   display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  flex-direction: column;
 
   @media (min-width: 768px) {
-    margin-left: 60px;
+    flex-direction: row;
+  }
+
+  @media (min-width: 1200px) {
     margin-bottom: 0;
+    margin-left: 60px;
+    flex-direction: column;
   }
 
   .mt {
@@ -30,12 +34,23 @@ const YNAB = styled.div`
   color: #fff;
   font-size: 1.2rem;
   padding: 40px;
-  max-width: 230px;
   margin-bottom: 20px;
+  margin: 1rem;
+  max-width: 230px;
+
+  @media (min-width: 1200px) {
+    flex-grow: unset;
+    max-width: 230px;
+  }
 `
 
 const PayMaya = styled(YNAB)`
   background-color: #8DC640;
+  flex-grow: 1;
+
+  @media (min-width: 1200px) {
+    // flex-grow: unset;
+  }
 `
 
 const Button = styled.a`
@@ -61,6 +76,12 @@ const Title = styled.p`
   font-size: 1.4rem;
 `
 
+const DownloadButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
 const Sidebar = () => (
   <StyledSidebar>
     <YNAB>
@@ -80,20 +101,22 @@ const Sidebar = () => (
       <Title>Get P50 for FREE</Title>
       <p>When you sign-up to PayMaya using my invite code!</p>
       <p><PayMayaCode>bwx3jm</PayMayaCode></p>
-      <MobileStoreButton
-        store="ios"
-        url={iOSUrl}
-        linkProps={{ title: 'Download PayMaya on the App Store' }}
-        width="150px"
-        height="40px"
-      />
-      <MobileStoreButton
-        store="android"
-        url={androidUrl}
-        linkProps={{ title: 'Download PayMaya on Google Play' }}
-        width="175px"
-        height="70px"
-      />
+      <DownloadButtons>
+        <MobileStoreButton
+          store="ios"
+          url={iOSUrl}
+          linkProps={{ title: 'Download PayMaya on the App Store' }}
+          height={70}
+          width={200}
+        />
+        <MobileStoreButton
+          store="android"
+          url={androidUrl}
+          linkProps={{ title: 'Download PayMaya on Google Play' }}
+          height={100}
+          width={200}
+        />
+      </DownloadButtons>
     </PayMaya>
   </StyledSidebar>
 );
