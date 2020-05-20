@@ -5,6 +5,7 @@ import MobileStoreButton from 'react-mobile-store-button';
 const ynabLink = 'https://ynab.com/referral/?ref=X3iIw2rgz_P89RJJ&utm_source=customer_referral';
 const iOSUrl = 'https://apps.apple.com/ph/app/paymaya/id991673877';
 const androidUrl = 'https://play.google.com/store/apps/details?id=com.paymaya&hl=en';
+const gcashLink = 'https://gcsh.app/r/5qQd0W9';
 
 const StyledSidebar = styled.div`
   align-items: center;
@@ -26,14 +27,22 @@ const StyledSidebar = styled.div`
   .mt {
     margin-top: 1.5rem;
   }
+
+  .mt-0 {
+    margin-top: 0;
+  }
+
+  .mb-0 {
+    margin-bottom: 0;
+  }
 `
 
 const YNAB = styled.div`
   background-color: #85C3E9;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #fff;
   font-size: 1.2rem;
-  padding: 40px;
+  padding: 20px;
   margin-bottom: 20px;
   margin: 1rem;
   max-width: 230px;
@@ -46,11 +55,10 @@ const YNAB = styled.div`
 
 const PayMaya = styled(YNAB)`
   background-color: #8DC640;
-  flex-grow: 1;
+`
 
-  @media (min-width: 1200px) {
-    // flex-grow: unset;
-  }
+const Gcash = styled(YNAB)`
+  background-color: #0332BE;
 `
 
 const Button = styled.a`
@@ -67,6 +75,11 @@ const Button = styled.a`
   }
 `
 
+const GcashButton = styled(Button)`
+  background-color: #fff;
+  color: #2974e7;
+`
+
 const PayMayaCode = styled.strong`
   font-size: 2.5rem;
 `
@@ -74,6 +87,7 @@ const PayMayaCode = styled.strong`
 const Title = styled.p`
   font-weight: 800;
   font-size: 1.4rem;
+  margin-top: 0;
 `
 
 const DownloadButtons = styled.div`
@@ -86,21 +100,34 @@ const Sidebar = () => (
   <StyledSidebar>
     <YNAB>
       <Title>Gain Total Control of Your Money</Title>
-      <p>Stop living paycheck-to-paycheck, get out of debt, and save more money. </p>
+      {/*<p>Stop living paycheck-to-paycheck, get out of debt, and save more money. </p>*/}
       <p className="mt">
         <Button
           href={ynabLink}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Try YNAB for Free!
+          Try YNAB Free
         </Button>
       </p>
     </YNAB>
+    <Gcash>
+      <Title>Try GCash and get P70 worth of freebies</Title>
+      {/*<p>Stop living paycheck-to-paycheck, get out of debt, and save more money. </p>*/}
+      <p className="mt">
+        <GcashButton
+          href={gcashLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Claim Gift Now
+        </GcashButton>
+      </p>
+    </Gcash>
     <PayMaya>
-      <Title>Get P50 for FREE</Title>
-      <p>When you sign-up to PayMaya using my invite code!</p>
-      <p><PayMayaCode>bwx3jm</PayMayaCode></p>
+      <Title>Signup to PayMaya and get P50</Title>
+      <p className="mb-0">Use invite code:</p>
+      <p className="mt-0"><PayMayaCode>bwx3jm</PayMayaCode></p>
       <DownloadButtons>
         <MobileStoreButton
           store="ios"
@@ -113,7 +140,7 @@ const Sidebar = () => (
           store="android"
           url={androidUrl}
           linkProps={{ title: 'Download PayMaya on Google Play' }}
-          height={100}
+          height={70}
           width={200}
         />
       </DownloadButtons>
