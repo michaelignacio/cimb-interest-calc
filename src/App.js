@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import exitIntent from 'exit-intent';
 import Table from './components/Table';
 import Result from './components/Result';
 import Sidebar from './components/Sidebar';
+import ExitIntentPopup from './components/ExitIntentPopup';
 
 const Container = styled.div`
   display: flex;
@@ -113,10 +115,25 @@ class App extends Component {
       interest: 4,
       days: 31,
       tax: 20,
-      result: 0
+      result: 0,
+      exitIntent: false,
+      removePopup: false
     };
     this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    const removeExitIntent = exitIntent({
+      threshold: 50,
+      maxDisplays: 2,
+      eventThrottle: 100,
+      onExitIntent: () => {
+        this.setState({ exitIntent: true });
+      }
+    });
+
+    this.state.removePopup && removeExitIntent();
   }
 
   handleChange(e) {
@@ -225,6 +242,11 @@ class App extends Component {
             </a>
           </p>
         </Disclaimer>
+        { this.state.exitIntent &&
+          <ExitIntentPopup
+            onClick={() => this.setState({ exitIntent: false })}
+          />
+        }
       </Container>
     );
   }
