@@ -13,8 +13,8 @@ const Form = (props) => (
         min="0"
         name="adb"
         placeholder="Average daily PHP balance..."
-        onChange={this.handleChange}
-        value={this.state.adb}
+        onChange={props.handleChange}
+        value={props.state.adb}
       />
     </Row>
     <Row>
@@ -28,8 +28,8 @@ const Form = (props) => (
         min="0"
         max="100"
         name="interest"
-        onChange={this.handleChange}
-        value={this.state.interest}
+        onChange={props.handleChange}
+        value={props.state.interest}
       />
     </Row>
     <Row>
@@ -43,8 +43,8 @@ const Form = (props) => (
         min="1"
         max="31"
         name="days"
-        onChange={this.handleChange}
-        value={this.state.days}
+        onChange={props.handleChange}
+        value={props.state.days}
       />
     </Row>
     <Row>
@@ -58,11 +58,11 @@ const Form = (props) => (
         min="0"
         max="100"
         name="tax"
-        onChange={this.handleChange}
-        value={this.state.tax}
+        onChange={props.handleChange}
+        value={props.state.tax}
       />
     </Row>
-    </>
+  </>
 );
 
 export default Form

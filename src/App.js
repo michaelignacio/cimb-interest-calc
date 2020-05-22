@@ -5,6 +5,7 @@ import Table from './components/Table';
 import Result from './components/Result';
 import Sidebar from './components/Sidebar';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import Form from './components/Form';
 import Landing from './components/Landing';
 
 const Container = styled.div`
@@ -43,32 +44,6 @@ const Content = styled.div`
   justify-content: center;
   padding: 1rem;
   align-items: center;
-`
-
-const Input = styled.input`
-  padding: 8px;
-  min-width: 150px;
-  margin-top: 5px;
-
-  @media (min-width: 768px) {
-    margin-top: 0;
-  }
-`
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-  margin: 5px;
-`
-
-const Label = styled.label`
-  align-items: center;
-  display: flex;
-  margin-right: 10px;
-  min-width: 200px;
 `
 
 const Disclaimer = styled.small`
@@ -148,63 +123,10 @@ class App extends Component {
       <Container>
         <Content>
         <h1>CIMB PH Interest Calculator</h1>
-        <Row>
-          <Label htmlFor="adb">Average daily PHP balance</Label>
-          <Input
-            id="adb"
-            type="number"
-            min="0"
-            name="adb"
-            placeholder="Average daily PHP balance..."
-            onChange={this.handleChange}
-            value={this.state.adb}
-          />
-        </Row>
-        <Row>
-          <Label htmlFor="interest">
-            Interest (in percent)
-          </Label>
-          <Input
-            id="interest"
-            type="number"
-            placeholder="Interest in percent..."
-            min="0"
-            max="100"
-            name="interest"
-            onChange={this.handleChange}
-            value={this.state.interest}
-          />
-        </Row>
-        <Row>
-          <Label htmlFor="days">
-            Number of days in a month
-          </Label>
-          <Input
-            id="days"
-            type="number"
-            placeholder="Number of days in month..."
-            min="1"
-            max="31"
-            name="days"
-            onChange={this.handleChange}
-            value={this.state.days}
-          />
-        </Row>
-        <Row>
-          <Label htmlFor="tax">
-            Withholding tax
-          </Label>
-          <Input
-            id="tax"
-            type="number"
-            placeholder="Withholding tax..."
-            min="0"
-            max="100"
-            name="tax"
-            onChange={this.handleChange}
-            value={this.state.tax}
-          />
-        </Row>
+        <Form
+          handleChange={(e) => this.handleChange(e)}
+          state={this.state}
+        />
         <Legend>
           <div>
             <code>
