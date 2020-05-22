@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import exitIntent from 'exit-intent';
 import Table from './components/Table';
-// import Result from './components/Result';
+import { CSSTransition } from 'react-transition-group';
 import Sidebar from './components/Sidebar';
 import ExitIntentPopup from './components/ExitIntentPopup';
 import Form from './components/Form';
@@ -14,6 +14,8 @@ const Container = styled.div`
   display: flex;
   text-align: center;
   flex-direction: column;
+  opacity: 0;
+  transition: all .5s;
 
   h1 {
     font-size: 1.25rem;
@@ -36,6 +38,16 @@ const Container = styled.div`
     h2 {
       font-size: 1.5rem;
     }
+  }
+
+  &.container-appear,
+  &.container-enter {
+    opacity: 0;
+  }
+
+  &.container-appear-done,
+  &.container-enter-done {
+    opacity: 1;
   }
 `
 
@@ -101,23 +113,30 @@ class App extends Component {
           state={this.state}
         />
         ) : (
-      <Container>
-        <Content>
-        <h1>CIMB PH Interest Calculator</h1>
-        <Form
-          handleChange={(e) => this.handleChange(e)}
-          state={this.state}
-        />
-        <Legend props={this.state} />
-        <Table props={this.state} />
-        </Content>
-        <Sidebar />
-        <Disclaimer />
-        { this.state.exitIntent && !this.state.landing &&
-          <ExitIntentPopup
-            onClick={() => this.setState({ exitIntent: false })}
-          /> }
-      </Container>
+        <CSSTransition
+          in={!this.state.landing}
+          timeout={400}
+          classNames="container"
+          appear
+        >
+        <Container className="container">
+          <Content>
+          <h1>CIMB PH Interest Calculator</h1>
+          <Form
+            handleChange={(e) => this.handleChange(e)}
+            state={this.state}
+          />
+          <Legend props={this.state} />
+          <Table props={this.state} />
+          </Content>
+          <Sidebar />
+          <Disclaimer />
+          { this.state.exitIntent && !this.state.landing &&
+            <ExitIntentPopup
+              onClick={() => this.setState({ exitIntent: false })}
+            /> }
+        </Container>
+      </CSSTransition>
       )}
       </>
     );

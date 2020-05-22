@@ -10,6 +10,15 @@ const Content = styled.div`
   height: 100vh;
   max-width: 1280px;
   margin: auto;
+  transition: all .3s;
+
+  &.container-appear {
+    opacity: 0;
+  }
+
+  &.container-appear-done {
+    opacity: 1;
+  }
 `
 
 const Title = styled.p`
@@ -54,7 +63,7 @@ const Button = styled.button`
 `
 
 const Landing = (props) => (
-  <Content>
+  <Content className={props.className}>
     <Title>
       How much is your average daily balance?
     </Title>
