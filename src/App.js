@@ -9,6 +9,7 @@ import Form from './components/Form';
 import Landing from './components/Landing';
 import Disclaimer from './components/Disclaimer';
 import Legend from './components/Legend';
+import Header from './components/Header';
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +17,7 @@ const Container = styled.div`
   flex-direction: column;
   opacity: 0;
   transition: all .5s;
+  padding-top: 100px;
 
   h1 {
     font-size: 1.25rem;
@@ -23,6 +25,10 @@ const Container = styled.div`
 
   h2 {
     font-size: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    padding-top: 25px;
   }
 
   @media (min-width: 1200px) {
@@ -48,6 +54,12 @@ const Container = styled.div`
   &.container-appear-done,
   &.container-enter-done {
     opacity: 1;
+  }
+`
+
+const FormArea = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
   }
 `
 
@@ -78,7 +90,7 @@ class App extends Component {
 
   componentDidMount() {
     const removeExitIntent = exitIntent({
-      threshold: 50,
+      threshold: 0,
       maxDisplays: 1,
       eventThrottle: 100,
       onExitIntent: () => {
@@ -106,6 +118,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <Header />
       { this.state.landing ? (
         <Landing
           handleSubmit={(e) => this.handleSubmit(e)}
@@ -121,16 +134,17 @@ class App extends Component {
         >
         <Container className="container">
           <Content>
-          <h1>CIMB PH Interest Calculator</h1>
-          <Form
-            handleChange={(e) => this.handleChange(e)}
-            state={this.state}
-          />
-          <Legend props={this.state} />
+          <FormArea>
+            <Form
+              handleChange={(e) => this.handleChange(e)}
+              state={this.state}
+            />
+            <Legend props={this.state} />
+          </FormArea>
           <Table props={this.state} />
           </Content>
           <Sidebar />
-          <Disclaimer />
+          {/*<Disclaimer />*/}
           { this.state.exitIntent && !this.state.landing &&
             <ExitIntentPopup
               onClick={() => this.setState({ exitIntent: false })}

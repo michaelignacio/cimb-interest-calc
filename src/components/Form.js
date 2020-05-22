@@ -1,10 +1,19 @@
+import styled from 'styled-components';
 import React from 'react';
 import Label from './Label';
 import Input from './Input';
 import Row from './Row';
 
+const Content = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+`
+
 const Form = (props) => (
-	<>
+	<Content>
     <Row>
       <Label htmlFor="adb">Average daily PHP balance</Label>
       <Input
@@ -62,7 +71,7 @@ const Form = (props) => (
         value={props.state.tax}
       />
     </Row>
-  </>
+  </Content>
 );
 
 export default Form

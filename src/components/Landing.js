@@ -7,10 +7,11 @@ const Content = styled.div`
   align-item: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
   max-width: 1280px;
   margin: auto;
   transition: all .3s;
+  padding: 20px;
+  height: 93vh;
 
   &.container-appear {
     opacity: 0;
@@ -19,22 +20,38 @@ const Content = styled.div`
   &.container-appear-done {
     opacity: 1;
   }
+
+  @media (min-width: 768px) {
+    height: 100vh;
+    padding: unset;
+  }
 `
 
 const Title = styled.p`
-  font-size: 60px;
+  font-size: 36px;
   text-align: center;
-  margin-top: -40px;
+  margin-bottom: 0;
+
+  @media (min-width: 768px) {
+    font-size: 48px;
+    margin-top: -40px;
+  }
 `
 
 const ADB = styled(Input)`
-  border-radius: 3px;
+  border-radius: 5px;
   border-style: none;
   border: 1px solid #ccc;
-  font-size: 2rem;
-  min-width: 360px;
+  font-size: 1.25rem;
   text-align: center;
-  padding: 20px;
+  padding: 20px 0;
+  min-width: 280px;
+  max-width: 280px;
+
+  @media (min-width: 768px) {
+    min-width: 360px;
+    max-width: unset;
+  }
 `
 
 const Form = styled.form`
@@ -42,23 +59,36 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 25px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `
 
 const Button = styled.button`
   background-color: #007DFE;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-top: 20px;
-  padding: 20px;
+  padding: 20px 20px;
   text-transform: uppercase;
-  width: 350px;
   transition: all .3s;
+  min-width: 280px;
+  margin-top: 10px;
 
   &:hover {
-    filter: brightness(90%);
+    filter: brightness(85%);
+    cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    margin-left: 15px;
+    margin-top: unset;
+    min-width: 350px;
+    max-width: unset;
   }
 `
 

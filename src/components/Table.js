@@ -5,10 +5,13 @@ import Result from './Result';
 const Comparison = styled.div`
   display: flex;
   flex-direction: column;
-  // margin-bottom: 2rem;
 
   @media (min-width: 768px) {
     margin-bottom: 0;
+  }
+
+  a {
+    color: #007DFE;
   }
 
   body {
@@ -19,6 +22,7 @@ const Comparison = styled.div`
   table {
     border: 1px solid #ccc;
     border-collapse: collapse;
+    border-radius: 5px;
     margin: 0;
     padding: 0;
     table-layout: fixed;
