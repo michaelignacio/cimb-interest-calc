@@ -5,6 +5,7 @@ import Table from './components/Table';
 import Result from './components/Result';
 import Sidebar from './components/Sidebar';
 import ExitIntentPopup from './components/ExitIntentPopup';
+import Landing from './components/Landing';
 
 const Container = styled.div`
   display: flex;
@@ -116,8 +117,7 @@ class App extends Component {
       days: 31,
       tax: 20,
       result: 0,
-      exitIntent: false,
-      removePopup: false
+      exitIntent: false
     };
     this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
@@ -126,14 +126,14 @@ class App extends Component {
   componentDidMount() {
     const removeExitIntent = exitIntent({
       threshold: 50,
-      maxDisplays: 2,
+      maxDisplays: 1,
       eventThrottle: 100,
       onExitIntent: () => {
         this.setState({ exitIntent: true });
       }
     });
 
-    this.state.removePopup && removeExitIntent();
+    this.state.exitIntent && removeExitIntent();
   }
 
   handleChange(e) {
