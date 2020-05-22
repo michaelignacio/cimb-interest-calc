@@ -57,7 +57,8 @@ class App extends Component {
       days: 31,
       tax: 20,
       result: 0,
-      exitIntent: false
+      exitIntent: false,
+      landing: true
     };
     this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
@@ -83,8 +84,23 @@ class App extends Component {
     });
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.setState({
+      landing: false
+    });
+  }
+
   render() {
     return (
+      <>
+      { this.state.landing ? (
+        <Landing
+          handleSubmit={(e) => this.handleSubmit(e)}
+          handleChange={(e) => this.handleChange(e)}
+          state={this.state}
+        />
+        ) : (
       <Container>
         <Content>
         <h1>CIMB PH Interest Calculator</h1>
@@ -97,12 +113,13 @@ class App extends Component {
         </Content>
         <Sidebar />
         <Disclaimer />
-        { this.state.exitIntent &&
+        { this.state.exitIntent && !this.state.landing &&
           <ExitIntentPopup
             onClick={() => this.setState({ exitIntent: false })}
-          />
-        }
+          /> }
       </Container>
+      )}
+      </>
     );
   }
 }
