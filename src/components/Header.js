@@ -36,7 +36,7 @@ const Container = styled.div`
 const Header = () => (
   <Content>
     <Container>
-    <a href="/">the wais blog</a>
+    <a href="/">phinterest</a>
     </Container>
   </Content>
 );
