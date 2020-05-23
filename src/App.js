@@ -120,11 +120,19 @@ class App extends Component {
       <>
         <Header />
       { this.state.landing ? (
+        <CSSTransition
+          in={!this.state.landing}
+          timeout={400}
+          classNames="landing-out"
+          appear
+        >
         <Landing
+          className="landing-out"
           handleSubmit={(e) => this.handleSubmit(e)}
           handleChange={(e) => this.handleChange(e)}
           state={this.state}
         />
+        </CSSTransition>
         ) : (
         <CSSTransition
           in={!this.state.landing}
