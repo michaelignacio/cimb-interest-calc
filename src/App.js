@@ -90,7 +90,7 @@ class App extends Component {
 
   componentDidMount() {
     const removeExitIntent = exitIntent({
-      threshold: 0,
+      threshold: 20,
       maxDisplays: 1,
       eventThrottle: 100,
       onExitIntent: () => {
