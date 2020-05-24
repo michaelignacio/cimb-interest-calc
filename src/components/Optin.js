@@ -69,7 +69,6 @@ class Optin extends Component {
 
   submitForm(ev) {
     ev.preventDefault();
-    console.log('submitted');
     const form = ev.target;
     const data = new FormData(form);
     const xhr = new XMLHttpRequest();

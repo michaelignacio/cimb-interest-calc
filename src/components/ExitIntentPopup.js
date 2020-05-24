@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import Optin from './Optin';
 
@@ -49,19 +49,35 @@ const CloseButton = styled.div`
   }
 `
 
-const ExitIntentPopup = (props) => (
-  <Container>
-    <Content>
-    <CloseButton>
-      <span onClick={props.onClick}>
-        x
-      </span>
-    </CloseButton>
-      <h1 className="title">How much more money should you be growing passively</h1>
-      <Optin />
-      <p className="subtitle">Latest local news on where to put your money to make the most out of it, as well as tips on how to get closer to financial independence, delivered straight to your inbox daily.</p>
-    </Content>
-  </Container>
-);
+const ExitIntentPopup = (props) => {
+  const escFunc = useCallback((e) => {
+    if(e.keyCode === 27) {
+      props.onClick();
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('keydown', escFunc, false);
+
+    return () => {
+      document.removeEventListener('keydown', escFunc, false);
+    };
+  }, []);
+
+  return (
+    <Container>
+      <Content>
+      <CloseButton>
+        <span onClick={props.onClick}>
+          x
+        </span>
+      </CloseButton>
+        <h1 className="title">How much more money should you be growing passively</h1>
+        <Optin />
+        <p className="subtitle">Latest local news on where to put your money to make the most out of it, as well as tips on how to get closer to financial independence, delivered straight to your inbox daily.</p>
+      </Content>
+    </Container>
+  );
+}
 
 export default ExitIntentPopup;
