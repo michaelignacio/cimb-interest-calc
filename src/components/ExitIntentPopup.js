@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Optin from './Optin';
 
 const Container = styled.div`
-  display: none;
   background: #fff;
   background: #007DFE;
   width: 100%;
@@ -17,17 +16,23 @@ const Container = styled.div`
   justify-content: center;
 
   color: #fff;
-
-  @media (min-width: 1200px) {
-    display: flex;
-  }
 `
 
 const Content = styled.div`
   max-width: 850px;
+  padding: 20px;
+
+  @media (min-width: 992px) {
+    padding: unset;
+  }
 
   .title {
-    font-size: 60px;
+    font-size: 28px;
+    margin-top: 0;
+    @media (min-width: 768px) {
+      margin-top: unset;
+      font-size: 60px;
+    }
     margin-bottom: 1em;
   }
 
@@ -40,10 +45,14 @@ const Content = styled.div`
 
 const CloseButton = styled.div`
   font-size: 32px;
-  margin-top: -40px;
   text-align: right;
   position: relative;
-  right: -100px;
+  @media (min-width: 768px) {
+    margin-top: -40px;
+    right: -100px;
+    top: unset;
+  }
+
 
   a {
     text-decoration: none;

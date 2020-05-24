@@ -20,6 +20,8 @@ const Form = styled.form`
   }
 
   button {
+    margin-top: 10px;
+    width: 100%;
     background-color: #000;
     border: 1px solid #000;
     border-radius: 3px;
@@ -32,6 +34,11 @@ const Form = styled.form`
     &:hover {
       background-color: #555;
       border-color: #555;
+    }
+
+    @media (min-width: 768px) {
+      margin-top: unset;
+      width: unset;
     }
   }
 
