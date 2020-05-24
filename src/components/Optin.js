@@ -60,7 +60,7 @@ class Optin extends Component {
         method="POST"
       >
         <label className="visually-hidden">Email:</label>
-        <input type="email" name="email" placeholder="Your email address..." />
+        <input type="email" name="email" placeholder="Your email address..." autoFocus />
         {status === "SUCCESS" ? <p className="thank-you">Thank you! We'll get in touch with you shortly.</p> : <button>Subscribe</button>}
         {status === "ERROR" && <p>Ooops! There was an error.</p>}
       </Form>
