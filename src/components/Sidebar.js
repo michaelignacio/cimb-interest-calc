@@ -78,6 +78,8 @@ const YNAB = styled.div`
 
 const PayMaya = styled(YNAB)`
   background-color: #8DC640;
+  display: flex;
+  flex-direction: column;
 `
 
 const Gcash = styled(YNAB)`
