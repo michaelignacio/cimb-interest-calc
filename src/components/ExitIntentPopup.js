@@ -18,8 +18,8 @@ const Container = styled.div`
 
   color: #fff;
 
-  @media (min-width: 768px) {
-    display: block;
+  @media (min-width: 1200px) {
+    display: flex;
   }
 `
 
