@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Optin from './Optin';
 
 const Container = styled.div`
+  display: none;
   background: #fff;
   background: #007DFE;
   width: 100%;
@@ -16,6 +17,10 @@ const Container = styled.div`
   justify-content: center;
 
   color: #fff;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `
 
 const Content = styled.div`
