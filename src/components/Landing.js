@@ -114,6 +114,7 @@ const Landing = (props) => (
         placeholder="Average daily balance..."
         onChange={props.handleChange}
         value={props.state.adb}
+        autoFocus
       />
       <Button onClick={props.handleSubmit}>
         Continue
