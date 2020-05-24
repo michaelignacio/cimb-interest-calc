@@ -17,11 +17,16 @@ const Form = styled.form`
     padding: 20px;
     border: none;
     min-width: 250px;
+    // width: 85%;
+
+    media (min-width: 992px) {
+      // width: unset;
+    }
   }
 
   button {
     margin-top: 10px;
-    width: 100%;
+    min-width: 290px;
     background-color: #000;
     border: 1px solid #000;
     border-radius: 3px;
@@ -39,6 +44,7 @@ const Form = styled.form`
     @media (min-width: 768px) {
       margin-top: unset;
       width: unset;
+      min-width: unset;
     }
   }
 
