@@ -127,7 +127,7 @@ class App extends Component {
           appear
         >
         <Landing
-          className="landing-out"
+          className="container"
           handleSubmit={(e) => this.handleSubmit(e)}
           handleChange={(e) => this.handleChange(e)}
           state={this.state}

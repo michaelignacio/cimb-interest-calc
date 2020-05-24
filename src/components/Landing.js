@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
 import Input from './Input';
 
 const Content = styled.div`
@@ -93,6 +94,13 @@ const Button = styled.button`
 `
 
 const Landing = (props) => (
+  <>
+    <CSSTransition
+      in={props.state.landing}
+      timeout={400}
+      classNames="container"
+      appear
+    >
   <Content className={props.className}>
     <Title>
       How much is your average daily balance?
@@ -112,6 +120,8 @@ const Landing = (props) => (
       </Button>
     </Form>
   </Content>
+  </CSSTransition>
+  </>
 );
 
 export default Landing;
