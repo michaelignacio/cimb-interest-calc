@@ -28,10 +28,11 @@ const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    padding-top: 25px;
+    padding-top: 80px;
   }
 
   @media (min-width: 1200px) {
+    padding-top: 25px;
     flex-direction: row;
     height: 95vh;
     max-width: 1280px;
