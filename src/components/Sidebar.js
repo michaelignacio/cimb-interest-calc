@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import MobileStoreButton from 'react-mobile-store-button';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { FaCopy } from 'react-icons/fa';
 
 const ynabLink = 'https://ynab.com/referral/?ref=X3iIw2rgz_P89RJJ&utm_source=customer_referral';
 const iOSUrl = 'https://apps.apple.com/ph/app/paymaya/id991673877';
@@ -14,6 +15,27 @@ const StyledSidebar = styled.div`
   justify-content: center;
   margin-bottom: 3rem;
   flex-direction: column;
+
+  .not-copied {
+    opacity: 0;
+  }
+
+  .copy {
+    transition: all .3s;
+    animation: opacityOn 1.9s normal forwards;
+  }
+
+  @keyframes opacityOn {
+      0% {
+          opacity: 0;
+      }
+      50% {
+          opacity: 1;
+      }
+      100% {
+          opacity: 0;
+      }
+  }
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -100,7 +122,7 @@ const DownloadButtons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 15px;
 `
 
 const Sidebar = () => {
@@ -139,8 +161,11 @@ const Sidebar = () => {
         <CopyToClipboard
           text='bwx3jm'
           onCopy={() => setIsCopied(true)}>
-          <PayMayaCode>bwx3jm</PayMayaCode>
+          <PayMayaCode>bwx3jm <FaCopy size=".5em" /></PayMayaCode>
         </CopyToClipboard>
+        { isCopied
+          ? <small className="copy">Copied to clipboard!</small>
+          : <small className="not-copied">Copied to clipboard!</small> }
         {/*<p className="mt-0"><PayMayaCode>bwx3jm</PayMayaCode></p>*/}
         <DownloadButtons>
           <MobileStoreButton
