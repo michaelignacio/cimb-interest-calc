@@ -21,7 +21,11 @@ const Result = (props) => {
 
   result = result * multiplier;
 
-  return Math.round(result * 100) / 100;
+  result = new Intl.NumberFormat('en-US',
+    { style: 'currency', currency: 'Php' }
+  ).format(result); // '$100.00'
+
+  return result;
 }
 
 export default Result

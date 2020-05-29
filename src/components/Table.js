@@ -126,10 +126,10 @@ const Table = ({props}) => (
         </td>
         <td>Quarterly</td>
         <td>
-          Php<Result data={props} bank="bpi" />
+          <Result data={props} bank="bpi" />
         </td>
         <td>
-          Php<Result data={props} bank="bpi" multiplier="3" />
+          <Result data={props} bank="bpi" multiplier="3" />
         </td>
       </tr>
       <tr>
@@ -145,10 +145,10 @@ const Table = ({props}) => (
         </td>
         <td>Quarterly</td>
         <td>
-          Php<Result data={props} bank="bdo" />
+          <Result data={props} bank="bdo" />
         </td>
         <td>
-          Php<Result data={props} bank="bdo" multiplier="3" />
+          <Result data={props} bank="bdo" multiplier="3" />
         </td>
       </tr>
       <tr>
@@ -162,10 +162,10 @@ const Table = ({props}) => (
         </td>
         <td>Every 1 <sup>st</sup> of the month</td>
         <td>
-          <strong>Php<Result data={props} /></strong>
+          <strong><Result data={props} /></strong>
         </td>
         <td>
-          <strong>Php<Result data={props} multiplier="12" /></strong>
+          <strong><Result data={props} multiplier="12" /></strong>
         </td>
       </tr>
       </tbody>

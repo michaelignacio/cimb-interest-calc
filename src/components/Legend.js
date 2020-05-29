@@ -31,7 +31,7 @@ const Legend = ( {props} ) => (
       </code>
       <p className="mb">
         <small>
-          <code>gross interest = </code><strong>Php<Result data={props} /></strong>
+          <code>gross interest = </code><strong><Result data={props} /></strong>
         </small>
       </p>
       </div>
@@ -40,7 +40,7 @@ const Legend = ( {props} ) => (
         <p><small>net interest = gross interest - withholding tax</small></p>
       </code>
       <p>
-        <code>net interest = </code><strong>Php<Result data={props} type="net" /></strong>
+        <code>net interest = </code><strong><Result data={props} type="net" /></strong>
       </p>
     </div>
   </Content>
