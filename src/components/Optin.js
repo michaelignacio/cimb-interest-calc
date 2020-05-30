@@ -17,7 +17,9 @@ const Form = styled.form`
     padding: 20px;
     border: none;
     min-width: 250px;
-    // width: 85%;
+    @media (min-width: 768px) {
+      margin-right: 10px;
+    }
 
     media (min-width: 992px) {
       // width: unset;
@@ -72,8 +74,10 @@ class Optin extends Component {
         action="https://formspree.io/mpzyqkgn"
         method="POST"
       >
+        <label className="visually-hidden">Name:</label>
+        <input type="text" name="name" placeholder="Your name..." required autoFocus />
         <label className="visually-hidden">Email:</label>
-        <input type="email" name="email" placeholder="Your email address..." autoFocus />
+        <input type="email" name="email" placeholder="Your email address..." required />
         {status === "SUCCESS" ? <p className="thank-you">Thank you! We'll get in touch with you shortly.</p> : <button>Subscribe</button>}
         {status === "ERROR" && <p>Ooops! There was an error.</p>}
       </Form>
