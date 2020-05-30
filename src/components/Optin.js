@@ -17,8 +17,11 @@ const Form = styled.form`
     padding: 20px;
     border: none;
     min-width: 250px;
+    margin-bottom: 10px;
+
     @media (min-width: 768px) {
       margin-right: 10px;
+      margin-bottom: 0;
     }
 
     media (min-width: 992px) {
