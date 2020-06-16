@@ -3,6 +3,8 @@ Ever wondered how CIMB Bank PH compares with savings accounts on other tradition
 
 Access the CIMB PH Interest Calculator [here](https://cimb-calc.now.sh/).
 
+This is also shared in the PHInvest subreddit - see discussion [here](https://www.reddit.com/r/phinvest/comments/gl7gz4/i_created_a_cimb_interest_calculator_web_app_for/)
+
 ## Quick start
 
 1.  **Clone the repo**
